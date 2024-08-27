@@ -8,6 +8,8 @@ public class SavingsAccount extends BankAccount {
         balance += amount;
         System.out.println("Deposited $" + amount + " to " + accountHolder);
         System.out.println("Current Total: $" + balance);
+        displayAccountInfo();
+        System.out.println();
     }
 
     @Override
@@ -16,6 +18,8 @@ public class SavingsAccount extends BankAccount {
         balance -= amount;
         System.out.println("Withdrew $" + amount + " from " + accountHolder);
         System.out.println("Current Total: $" + balance);
+        displayAccountInfo();
+        System.out.println();
     }
 
     @Override

@@ -8,6 +8,9 @@ public class CheckingAccount extends BankAccount {
         balance += amount;
         System.out.println("Deposited $" + amount + " to " + accountHolder);
         System.out.println("Current Total: $" + balance);
+        System.out.println();
+        displayAccountInfo();
+        System.out.println();
     }
 
     @Override
@@ -16,11 +19,15 @@ public class CheckingAccount extends BankAccount {
         if(balance - amount < overdraftLimit) {
             System.out.println("Can not withdraw $" + amount + " from " + accountHolder);
             System.out.println("Current Balance: $" + balance + " Overdraft-Limit: $" + overdraftLimit);
+            displayAccountInfo();
+            System.out.println();
             return;
         }
         balance -= amount;
         System.out.println("Withdrew $" + amount + " from " + accountHolder);
         System.out.println("Current Total: $" + balance);
+        displayAccountInfo();
+        System.out.println();
     }
 
     @Override
