@@ -5,9 +5,9 @@ public class CheckingAccount extends BankAccount {
     @Override
     public void deposit(double amount) {
 
-        balance += amount;
-        System.out.println("Deposited $" + amount + " to " + accountHolder);
-        System.out.println("Current Total: $" + balance);
+        setBalance(getBalance() + amount);
+        System.out.println("Deposited $" + amount + " to " + getAccountHolder());
+        System.out.println("Current Total: $" + getBalance());
         System.out.println();
         displayAccountInfo();
         System.out.println();
@@ -16,16 +16,16 @@ public class CheckingAccount extends BankAccount {
     @Override
     public void withdraw(double amount) {
 
-        if(balance - amount < overdraftLimit) {
-            System.out.println("Can not withdraw $" + amount + " from " + accountHolder);
-            System.out.println("Current Balance: $" + balance + " Overdraft-Limit: $" + overdraftLimit);
+        if(getBalance() - amount < overdraftLimit) {
+            System.out.println("Can not withdraw $" + amount + " from " + getAccountHolder());
+            System.out.println("Current Balance: $" + getBalance() + " Overdraft-Limit: $" + overdraftLimit);
             displayAccountInfo();
             System.out.println();
             return;
         }
-        balance -= amount;
-        System.out.println("Withdrew $" + amount + " from " + accountHolder);
-        System.out.println("Current Total: $" + balance);
+        setBalance(getBalance() - amount);
+        System.out.println("Withdrew $" + amount + " from " + getAccountHolder());
+        System.out.println("Current Total: $" + getBalance());
         displayAccountInfo();
         System.out.println();
     }
@@ -33,8 +33,8 @@ public class CheckingAccount extends BankAccount {
     @Override
     public void displayAccountInfo() {
 
-        System.out.println("Acc. Number: " + accountNumber + " Holder: " + accountHolder
-                + " Balance: $" + balance + " Type" + getClass().getSimpleName() + " Overdraft-limit: $" + overdraftLimit);
+        System.out.println("Acc. Number: " + getAccountNumber() + " Holder: " + getAccountHolder()
+                + " Balance: $" + getBalance() + " Type: " + getClass().getSimpleName() + " Overdraft-limit: $" + overdraftLimit);
     }
 
     public double getOverdraftLimit() {

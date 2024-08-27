@@ -5,9 +5,9 @@ public class SavingsAccount extends BankAccount {
     @Override
     public void deposit(double amount) {
 
-        balance += amount;
-        System.out.println("Deposited $" + amount + " to " + accountHolder);
-        System.out.println("Current Total: $" + balance);
+        setBalance(getBalance() + amount);
+        System.out.println("Deposited $" + amount + " to " + getAccountHolder());
+        System.out.println("Current Total: $" + getBalance());
         displayAccountInfo();
         System.out.println();
     }
@@ -15,9 +15,9 @@ public class SavingsAccount extends BankAccount {
     @Override
     public void withdraw(double amount) {
 
-        balance -= amount;
-        System.out.println("Withdrew $" + amount + " from " + accountHolder);
-        System.out.println("Current Total: $" + balance);
+        setBalance(getBalance() - amount);
+        System.out.println("Withdrew $" + amount + " from " + getAccountHolder());
+        System.out.println("Current Total: $" + getBalance());
         displayAccountInfo();
         System.out.println();
     }
@@ -25,8 +25,8 @@ public class SavingsAccount extends BankAccount {
     @Override
     public void displayAccountInfo() {
 
-        System.out.println("Acc. Number: " + accountNumber + " Holder: " + accountHolder
-        + " Balance: $" + balance + " Type" + getClass().getSimpleName() + " Interest Rate: $" + interestRate);
+        System.out.println("Acc. Number: " + getAccountNumber() + " Holder: " + getAccountHolder()
+        + " Balance: $" + getBalance() + " Type: " + getClass().getSimpleName() + " Interest Rate: $" + interestRate);
     }
 
     public double getInterestRate() {

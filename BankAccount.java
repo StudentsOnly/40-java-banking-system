@@ -2,9 +2,9 @@ import java.security.PrivateKey;
 
 public abstract class BankAccount {
 
-    protected String accountNumber;
-    protected String accountHolder;
-    protected double balance;
+    private String accountNumber;
+    private String accountHolder;
+    private double balance;
 
     public abstract void deposit(double amount);
 
