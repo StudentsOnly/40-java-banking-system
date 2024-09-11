@@ -11,21 +11,23 @@ class CheckingAccount extends BankAccount {
 
     @Override
     public void deposit(double amount) {
-        if (amount > 0) {
+        if (amount > 0) { //When a method is passed an argument that is inappropriate or invalid for its operation.
             balance += amount;
             System.out.println("Deposited: " + amount);
         } else {
-            System.out.println("Invalid deposit amount.");
+           // System.out.println("Invalid deposit amount.");
+            throw new IllegalArgumentException("Invalid deposit amount.");
         }
     }
 
     @Override
     public void withdraw(double amount) {
-        if (amount > 0 && amount <= balance + overdraftLimit) {
+        if (amount > 0 && amount <= balance + overdraftLimit) { //When a method is passed an argument that is inappropriate or invalid for its operation.
             balance -= amount;
             System.out.println("Withdrawn: " + amount);
         } else {
-            System.out.println("Invalid withdrawal amount.");
+           // System.out.println("Invalid withdrawal amount.");
+            throw new IllegalArgumentException("Invalid withdrawal amount.");
         }
     }
 
